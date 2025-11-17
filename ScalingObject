@@ -14,3 +14,24 @@ public class ScalingObject extends JFrame implements MouseListener{
 		addMouseListener(this);
 		g=getGraphics();
 	}
+public void DDA(int x1, int y1, int x2, int y2){
+		int dx = x2 - x1;
+		int dy = y2 - y1;
+		
+		int steps = Math.max(Math.abs(dx), Math.abs(dy));
+		
+		double xinc = dx * 1.0 / steps ;
+		double yinc = dy * 1.0 / steps ;
+		
+		double x = x1;
+		double y = y1;
+		
+		for(int i = 0 ; i<= steps ; i++){
+			g.drawLine((int) Math.round(x), (int) Math.round(y),
+					   (int) Math.round(x), (int) Math.round(y));
+					   
+			x += xinc;
+			y += yinc;
+		}
+		
+	}
